@@ -6,5 +6,5 @@
 
 ## Quick Start
 
-[Docusaurus Readme](/website/readme.md)
+[Docusaurus Readme](/website/README.md)
 
