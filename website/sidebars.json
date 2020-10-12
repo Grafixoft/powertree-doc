@@ -1,5 +1,8 @@
 {
   "docs": {
-    "Get Started": ["overview", "installation"]
+    "Get Started": ["overview", "workflows", "activities", "architecture"],
+    "Use Cases": [],
+    "How To": ["installation", "configuration", "cli"],
+    "C# SDK": ["csharp_sdk", "prerequisites", "hello_world"]
   }
 }

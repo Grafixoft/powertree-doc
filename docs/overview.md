@@ -3,10 +3,10 @@ id: overview
 title: Overview
 ---
 
-Example content
+### Example content
 
 ```c#
-public static void Main() 
+public static void Main()
 {
     Console.WriteLine("Hello World!");
 }
