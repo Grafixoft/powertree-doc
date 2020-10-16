@@ -25,25 +25,6 @@ public abstract class Workflow<T> : Workflow
 }
 ```
 
-### Workflow Completion
-
-All workflows are considered completed in the following scenarios:
-
-1. If the `DoWork` method has exited without submitting subworkflows and there are no pending subworkflows the workflow has completed with `WorkflowStatus.Succeeded`
-2. If the `DoWork` method threw an exception the workflow is completed with `WorkflowStatus.Failed`
-3. If a workflow has been cancelled by a client or another workflow before completing its work it completes with `WorkflowStatus.Canceled`
-4. If none of the above conditions have been met within the allotted timeout period it completes with `WorkflowStatus.Timeout`. All workflows have a timeout and it imposes an absolute time limit on workflows, allowing for recovery in unexpected situations, e.g. infinite loops
-5. Child workflows are terminated prematurely if a parent workflow completes with a status other than `WorkflowStatus.Succeeded` before they manage to complete themselves. In this case they are assigned `WorkflowStatus.ParentTerminated`
-
-### Workflow Continuation
-
-The `DoWork` method returns a `Continuation` object, which specifies when the next [activation](../overview/concepts#activities) of the workflow will take place. 
-* `Continuation.WaitAll()` specifies that the next activation should be made only after *all* subworkflows have completed
-* `Continuation.WaitAny()` specifies that the next activation should be made as soon as *one or more* subworkflows have completed
-* `Continuation.Default()` is the default continuation option. Equivalent to `WaitAny` continuation
-* No `Continuation` - if a workflow has not submitted or doesn’t have pending subworkflows it is considered completed and `DoWork` is not called again on this instance. In this case the return value of `DoWork` is ignored
-* More `Continuations` in the future
-
 ### Workflow State
 
 A workflow instance can keep internal state, which is then serialized and persisted for the next [activation](../overview/concepts#activities).
@@ -54,12 +35,31 @@ Additionally, workflow state should be kept small since the shared node memory, 
 
 #### Last Good Known State
 
-An important concept in PowerTree, the last good known state refers to the mechanism through which workflow durability is achieved. If a compute node fails, e.g. due to a power outage, the last good known state allows the activation to be retried on a different compute node as if the outage never happened.
+An important concept in PowerTree, the last good known state refers to the mechanism through which workflow durability is achieved. If a compute node fails, e.g. due to a power outage, the last good known state allows the activation to be retried transparently on a different compute node as if the outage never happened.
 
 ### Workflow Parameters
 
 Workflows can accept any number of parameters through public `[DataMember]` annotated properties.
 Parameters can be passed to a workflow either by a user through the CLI, or through a parent workflow. More information on the latter can be found in the [next section](subworkflows)
+
+### Workflow Continuation
+
+The `DoWork` method returns a `Continuation` object, which specifies when the next [activation](../overview/concepts#activities) of the workflow will take place. 
+* `Continuation.WaitAll()` specifies that the next activation should be made only after *all* subworkflows have completed
+* `Continuation.WaitAny()` specifies that the next activation should be made as soon as *one or more* subworkflows have completed
+* `Continuation.Default()` is the default continuation option. Equivalent to `WaitAny` continuation
+* No `Continuation` - if a workflow has not submitted or doesn’t have pending subworkflows it is considered completed and `DoWork` is not called again on this instance. In this case the return value of `DoWork` is ignored
+* More `Continuations` in the future
+
+### Workflow Completion
+
+All workflows are considered completed in the following scenarios:
+
+1. If the `DoWork` method has exited without submitting subworkflows and there are no pending subworkflows the workflow has completed with `WorkflowStatus.Succeeded`
+2. If the `DoWork` method threw an exception the workflow is completed with `WorkflowStatus.Failed`
+3. If a workflow has been cancelled by a client or another workflow before completing its work it completes with `WorkflowStatus.Canceled`
+4. If none of the above conditions have been met within the allotted timeout period it completes with `WorkflowStatus.Timeout`. All workflows have a timeout and it imposes an absolute time limit on workflows, allowing for recovery in unexpected situations, e.g. infinite loops
+5. Child workflows are terminated prematurely if a parent workflow completes with a status other than `WorkflowStatus.Succeeded` before they manage to complete themselves. In this case they are assigned `WorkflowStatus.ParentTerminated`
 
 The following example illustrates the topics discussed above.
 
@@ -105,6 +105,7 @@ public class ExampleWorkflow : Workflow<long>
         }
         
         // Wait for all subworkflows to complete before activating again
+        // If there are no pending subworkflows, it completes successfully
         return Continuation.WaitAll();
     }
         
