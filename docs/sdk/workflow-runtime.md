@@ -1,5 +1,5 @@
 ---
-id: workflow_runtime
+id: workflow-runtime
 title: Workflow Runtime
 ---
 

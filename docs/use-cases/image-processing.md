@@ -1,5 +1,5 @@
 ---
-id: image_processing
+id: image-processing
 title: Image and Video Processing
 ---
 

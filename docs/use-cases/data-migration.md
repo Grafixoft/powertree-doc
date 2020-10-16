@@ -1,5 +1,5 @@
 ---
-id: data_migration
+id: data-migration
 title: Data Migration
 ---
 

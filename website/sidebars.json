@@ -1,9 +1,9 @@
 {
   "docs": {
-    "Get Started": ["get-started/overview", "get-started/concepts", "get-started/architecture"],
-    "Use Cases": ["use-cases/image_processing", "use-cases/data_migration", "use-cases/orchestration", "use-cases/computation"],
-    "How To": ["how-to/installation", "how-to/configuration", "how-to/cli", "how-to/monitoring"],
-    "C# SDK": ["sdk/prerequisites", "sdk/hello_world", 
+    "Overview": ["overview/what-is-powertree", "overview/why-powertree", "overview/concepts", "overview/architecture"],
+    "Use Cases": ["use-cases/image-processing", "use-cases/data-migration", "use-cases/orchestration", "use-cases/computation"],
+    "PowerTree Service": ["service/installation", "service/configuration", "service/cli", "service/monitoring"],
+    "C# SDK": ["sdk/intro", "sdk/prerequisites", "sdk/hello-world", 
       {
         "type": "subcategory",
         "label": "Workflow Interface",
@@ -11,7 +11,7 @@
           "sdk/workflow",
           "sdk/subworkflows",
           "sdk/exceptions",
-          "sdk/workflow_runtime"
+          "sdk/workflow-runtime"
         ]
       }
     ]
