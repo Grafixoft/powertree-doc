@@ -5,7 +5,7 @@ title: Subworkflows
 
 ### Working with Subworkflows
 
-In the previous example we saw that the `ExampleWorkflow` called a `SubmitSubworkflows` method inside it's `DoWork` implementation. What `SubmitSubworkflows` actualy does is to enqueue a number of subworkflows through the [SubworkflowService](workflow-runtime#subworkflow-service). These subworkflows will be executed in parallel across available compute nodes after the parent has been deactivated.
+In the previous example we saw that the `ExampleWorkflow` called a `SubmitSubworkflows` method inside its `DoWork` implementation. What `SubmitSubworkflows` actualy does is to enqueue a number of subworkflows through the [SubworkflowService](workflow-runtime#subworkflow-service). These subworkflows will be executed in parallel across available compute nodes after the parent has been deactivated.
 
 ```c#
 private void SubmitSubworkflows(SubworkflowService subworkflows)
@@ -69,7 +69,7 @@ public class ExampleWorkflow : Workflow<long>
     private long returnValue;
 
     [DataMember]
-    public string PiecesOfWork { get; set; }
+    public string Parameter { get; set; }
     
     [DataMember]
     public override long ReturnValue => this.returnValue;
