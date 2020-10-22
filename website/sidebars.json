@@ -2,8 +2,8 @@
   "docs": {
     "Overview": ["overview/what-is-powertree", "overview/why-powertree", "overview/concepts", "overview/architecture"],
     "Use Cases": ["use-cases/image-processing", "use-cases/data-migration", "use-cases/orchestration", "use-cases/computation"],
-    "PowerTree Service": ["service/installation", "service/configuration", "service/cli", "service/monitoring"],
-    "C# SDK": ["sdk/sdk-overview", "sdk/prerequisites",  "sdk/hello-world", 
+    "PowerTree Service": ["service/deployment", "service/cli", "service/configuration", "service/monitoring"],
+    "C# SDK": ["sdk/intro", "sdk/prerequisites", "sdk/hello-world", 
       {
         "type": "subcategory",
         "label": "Workflow Interface",
