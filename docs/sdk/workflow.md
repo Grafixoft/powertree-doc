@@ -9,7 +9,7 @@ Workflows have two variants - the `Workflow` and `Workflow<T>` classes with the 
 
 Both of them also have their `async` analogs, namely `WorkflowAsync` and `WorkflowAsync<T>`.
 
-Note: *All workflows execute asynchronously and `WorkflowAsync` simply refers to the .NET task-based asynchronous programming model.*
+>All workflows execute asynchronously and `WorkflowAsync` simply refers to the .NET task-based asynchronous programming model.
 
 ```c#
 [DataContract]
@@ -35,7 +35,7 @@ Additionally, workflow state should be kept small since the shared node memory, 
 
 #### Last Good Known State
 
-An important concept in PowerTree, the last good known state refers to the mechanism through which workflow durability is achieved. If a compute node fails, e.g. due to a power outage, the last good known state allows the activation to be retried transparently on a different compute node as if the outage never happened.
+An important concept in PowerTree, the last good known state refers to the mechanism through which workflow durability is achieved. The last good known state of a workflow is persisted at the very end of each activation and if a compute node fails, e.g. due to a power outage, the last good known state allows the activation to be retried transparently on a different compute node as if the outage never happened.
 
 ### Workflow Parameters
 
