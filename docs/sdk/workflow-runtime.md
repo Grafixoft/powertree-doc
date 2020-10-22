@@ -3,11 +3,11 @@ id: workflow-runtime
 title: Workflow Runtime
 ---
 
-The `WorkflowRuntime` parameter of the `DoWork` method is responsible for providing essential runtime services to the workflow.
+The `WorkflowRuntime` parameter of the `DoWork` method is responsible for providing essential runtime services to the currently executing workflow.
 
 ### Subworkflow Service
 
-SubworkflowService class manages subworkflows for the current workflow  
+The SubworkflowService class manages subworkflows for the workflow and defines the following methods
 
 ```csharp
 public abstract void Cancel(WorkflowId id);
@@ -63,7 +63,8 @@ public virtual CancellationToken CancellationToken { get; }
 
 The `CancellationToken` property of `WorkflowRuntime` is used to provide a cancellation notification to the workflow being executed.
 Among others, the token will get signalled whenever the current workflow has been cancelled while active or when the host is shutting down.
-While we do ask nicely, keep in mind that uncooperative workflows will be [//]:#(TODO) murdered and their bodies thrown into archive storage.
+
+Workflows are expected to complete their work as quickly as possible and, although currently not enforced, the workflow will be interrupted if it does not deactivate within a given time period.
 
 <!--DOCUSAURUS_CODE_TABS-->
 
