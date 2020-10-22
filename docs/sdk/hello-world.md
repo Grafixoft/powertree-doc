@@ -31,10 +31,11 @@ namespace Demo.Workflows
 }
 ```
 
-*There are a few new concepts introduced here, but for now you only need to know 2 things - all workflows inherit from a base class defined in `Workflow.Interface` and all workflows are required to override the `DoWork` method, which encompasses this workflow's logic.*
+There are a few new concepts introduced here, but for now you only need to know 2 things 
+>All workflows inherit from a base class defined in `Workflow.Interface` and all workflows are required to override the `DoWork` method, which encompasses this workflow's logic.
 
-4. Build the project and make note of its output folder containing the DLLs
-5. Follow the steps outlined in the [Command-Line Interface](../how-to/cli#import) in order to start a PowerTree session in PowerShell.
+4. Publish the project and make note of the folder containing the DLLs
+5. Follow the steps outlined in the [Command-Line Interface](../service/cli) in order to start a PowerTree session in PowerShell.
 6. From this point on, with a few additional steps the workflow can be hosted either on a compute node, or inside the PowerShell session. We'll explore the former since it's the simpler option.
 7. Inside the PowerShell window replace the `{Build-Directory}` with your build output directory and run the following:
 
