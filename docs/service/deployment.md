@@ -13,7 +13,7 @@ Logs from across the nodes are shipped to an existing Elasticsearch instance and
 
 ### Operation Store Deployment
 
-The first step of setting up a PowerTree cluster is the SQL Server Operation Store deployment. 
+The first step of setting up a PowerTree cluster is the SQL Server Operation Store deployment.
 
 In this example we'll explore how a developer can setup a LocalDB instance of the Operation Store, but with a few parameter tweaks it can be used to deploy a remote Operation Store as well.
 
@@ -61,7 +61,7 @@ Again, this can be accomplished by in-memory execution of a workflow.
 
 The deployment workflow uses X.509 certificate authentication and assumes the appropriate Service Fabric certificate has been installed in the specified Certificate Store for the current user.
 
-If `$ExecutionEnvironmentPath` is provided, it is copied in package output folder.
+If `$ExecutionEnvironmentPath` is provided, it is copied in the package output folder.
 
 An application package must be uploaded to an image store before it can be registered and deployed. For local clusters, the image store is a local file folder, e.g. `file:C:\SfDevCluster\Data\ImageStoreShare`. For Azure-hosted clusters, the image store is a hosted image-store service by default - `fabric:ImageStore`.
 
