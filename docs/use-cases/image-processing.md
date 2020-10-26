@@ -6,9 +6,7 @@ title: Image and Video Processing
 ### Background
 
 Nowadays, the sizes of image and video collections are increasing dramatically along with the need for the computational capacity to process them. 
-Even though hardware is getting better and better each day, the requirements for image and video processing applications scale alongside them with each feature added. Large volumes cannot be analyzed on single computer within reasonable time and it highlights the need for distributing the workload among many PCs.
-
-Common workloads that would benefit parallelisation include:
+Even though hardware is getting better and better each day, the requirements for image and video processing applications scale alongside them with each feature added. Large volumes cannot be analyzed on single computer within reasonable time and it highlights the need for distributing the workload among many PCs. Common workloads that would benefit parallelisation include:
 
 * Compression
 * Resizing

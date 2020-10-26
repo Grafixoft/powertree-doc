@@ -66,13 +66,13 @@ Depending on whether there's an existing instance of the PowerTree application o
 
 The upgrade process of PowerTree in the cluster is monitored and executes health checks on every node. If health is in an error or warning state the whole upgrade is rolled back.
 
-All that's needed is to adjust the parameters as nesessary and run the snippet below:
+All that's needed is to adjust the parameters as necessary and run the snippet below:
 
-> TODO: PowerShell 5
+*Due to some limitations the workflow can only be executed in PowerShell 5*
 
 ```powershell
 $paramsList = @{`
-    # Connection string to a primary node in the cluster
+    # Connection to a primary node in the cluster
     ClusterConnection = "172.168.0.52:19000";`
     ImageStoreConnectionString = "fabric:ImageStore";`
     CompressPackage = $false;`
