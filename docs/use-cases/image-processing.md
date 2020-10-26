@@ -23,4 +23,4 @@ Workflows are always executed across available compute nodes in the cluster and 
 For images, it might be as simple as starting a new workflow for each of them.
 
 PowerTree also allows building complex transformation pipelines with relative ease through its simple programming model.
-It allows you to express complex processes through a simple API
+It allows you to express complex processes without concerns about networks, durability and availability.
