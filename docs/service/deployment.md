@@ -7,7 +7,7 @@ All PowerTree binaries do not have any machine-specific installation and are des
 
 That being said, the executables themselves need to be delivered and kept running on the compute nodes.
 
-In terms of infrastructure, the least you would need are one or more compute nodes, which can be any PC, virtual or otherwise, running inside the same network TODO: file share. You will also need a SQL Server 2016+ instance for the Operation Store database which should be accessible from within the nodes.
+In terms of infrastructure, the least you would need are one or more compute nodes, which can be any PC, virtual or otherwise, running inside the same network with access to a common, shared drive. You will also need a SQL Server 2016+ instance for the Operation Store database which should be accessible from within the nodes.
 
 Logs from across the nodes are shipped to an existing Elasticsearch instance and later visualized in Kibana.
 
@@ -15,35 +15,35 @@ Logs from across the nodes are shipped to an existing Elasticsearch instance and
 
 The first step of setting up a PowerTree cluster is the SQL Server Operation Store deployment.
 
-In this example we'll explore how a developer can setup a LocalDB instance of the Operation Store, but with a few parameter tweaks it can be used to deploy a remote Operation Store as well.
+This is easily done through invoking a workflow in-memory:
 
-This is easily done through an in-memory workflow:
+1. Follow the steps outlined in [Command-Line Interface](../service/cli) in order to start a PowerTree session in PowerShell
+2. Replace the parameters with your target values
 
-1. Follow the steps outlined in the [Command-Line Interface](../service/cli) in order to start a PowerTree session in PowerShell
-2. Replace the workflow parameters from the snippet below with your desired values
 ```powershell
-$DatabaseName = "OperationStoreLocal"
-$WorkflowDirectory = "{Path-To-OperationStore.SqlServer}"
+$DatabaseName = "OperationStoreLocal";
 
 Invoke-Workflow `
     -Assembly "OperationStore.SqlServer"`
     -Namespace "Grafixoft.Powertree.OperationStore.SqlServer"`
     -Class "DeployOperationStoreSqlServerWorkflow"`
-    -FullDirectoryPath $WorkflowDirectory `
+    -FullDirectoryPath (Join-Path $pwd ".\") `
     -Parameters @{`
-        ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB; Integrated Security=SSPI; Initial Catalog=$DatabaseName";`
-        DatabaseInitialSize="10MB";`
-        DatabaseMaxSize="10000MB";`
+        # Required
+        ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB; Integrated Security=SSPI; Initial Catalog=$DatabaseName";
+
+        # Optional
+        DatabaseInitialSize="100MB";`
+        DatabaseMaxSize="1000MB";`
         DatabaseFilePath="$env:TEMP\$DatabaseName.mdf";`
-        DatabaseFileGrowth="10MB";`
-        LogInitialSize="10MB";`
-        LogMaxSize="10000MB";`
+        DatabaseFileGrowth="100MB";`
+        LogInitialSize="100MB";`
+        LogMaxSize="1000MB";`
         LogFilePath="$env:TEMP\$DatabaseName.ldf";`
-        LogFileGrowth="10MB";`
+        LogFileGrowth="100MB";`
     }`
     -TimeoutSec 60
 ```
-
 3. Execute the command
 4. You should see the following in the PowerShell window:
 
@@ -59,80 +59,55 @@ Workflow hosts can be easily deployed to an existing Service Fabric cluster, whe
 
 Again, this can be accomplished by in-memory execution of a workflow.
 
-The deployment workflow uses X.509 certificate authentication and assumes the appropriate Service Fabric certificate has been installed in the specified Certificate Store for the current user.
-
-If `$ExecutionEnvironmentPath` is provided, it is copied in the package output folder.
-
-An application package must be uploaded to an image store before it can be registered and deployed. For local clusters, the image store is a local file folder, e.g. `file:C:\SfDevCluster\Data\ImageStoreShare`. For Azure-hosted clusters, the image store is a hosted image-store service by default - `fabric:ImageStore`.
+The deployment workflow example below uses X.509 certificate authentication and assumes the appropriate Service Fabric certificate has been installed in the specified Certificate Store for the current user.
 
 After the PowerTree package is verified, the corresponding application type is registered within the system.
-Depending on whether there's an existing instance of the PowerTree application or not, the deployment process chooses to perform a fresh install or upgrade the cluster. The upgrade process of PowerTree in the cluster is monitored and executes health checks on every node. If health is in an error or warning state the whole upgrade is rolled back.
+Depending on whether there's an existing instance of the PowerTree application or not, the deployment process chooses to perform a fresh install or upgrade the cluster. 
 
-The example below assumes a cloud deployment
-All that's needed is to adjust the parameters as nesessary and run `Invoke-DeployToServiceFabric`.
+The upgrade process of PowerTree in the cluster is monitored and executes health checks on every node. If health is in an error or warning state the whole upgrade is rolled back.
+
+All that's needed is to adjust the parameters as nesessary and run the snippet below:
+
+> TODO: PowerShell 5
 
 ```powershell
-function Invoke-DeployToServiceFabric {
-    param(
-        # Connection string to a primary node in the cluster, e.g. 172.168.0.52:19000
-        [Parameter(Mandatory=$true)]
-        [string] $ClusterConnection,
-        # Path to a folder where the runtime binaries are located
-        [Parameter(Mandatory=$true)]
-        [string] $SourcePath,
-        # Path to the Workflow.ServiceFabricDeployment DLLs
-        [Parameter(Mandatory=$true)]
-        [string] $WorkflowPath,
-        # The Service Fabric certificate thumbprint
-        [Parameter(Mandatory=$true)]
-        [string] $CertificateThumbprint,
-        # The common name of the Service Fabric certificate
-        [Parameter(Mandatory=$true)]
-        [string] $CertificateCommonName,
-        # The certificate store name
-        [Parameter(Mandatory=$true)]
-        [string] $CertificateStoreName,
-        # Temp path to store the package before uploading to Service Fabric
-        [string] $PackageRootPath = "$env:TEMP\PowerTreePackage",
-        [string] $ExecutionEnvironmentPath = $null,
-        [string] $ApplicationName = "PowerTreeApp",
-        [string] $Version = "1.0.0",
-        [string] $ServiceName = "WorkflowHost"
-    )
-
-    $paramsList = @{`
-        ClusterConnection = $ClusterConnection;`
-        ImageStoreConnectionString = "fabric:ImageStore";`
-        InstanceCount = -1;`
-        ApplicationName = $ApplicationName;`
-        Version = $Version;`
-        ServiceName = $ServiceName;`
-        EntryPoint = "Workflow.HostManager.exe";`
-        IsSecuredCluster = $true;`
-        CompressPackage = $false;`
-        PackageRootPath = $PackageRootPath;`
-        SourcePath = $SourcePath;`
-        ExecutionEnvironmentSourcePath = $ExecutionEnvironmentPath;`
-        CertificateStoreName = $CertificateStoreName;`
-        CertificateThumbprint = $CertificateThumbprint;`
-        CertificateCommonName = $CertificateCommonName;`
-    }
-    
-    Invoke-Workflow `
-        -Assembly "Workflow.ServiceFabricDeployment"`
-        -Namespace "Grafixoft.Powertree.Workflow.ServiceFabricDeployment"`
-        -Class "RuntimeDeploymentWorkflow"`
-        -FullDirectoryPath "$WorkflowPath"`
-        -Parameters  $paramsList `
-        -TimeoutSec 600
+$paramsList = @{`
+    # Connection string to a primary node in the cluster
+    ClusterConnection = "172.168.0.52:19000";`
+    ImageStoreConnectionString = "fabric:ImageStore";`
+    CompressPackage = $false;`
+    # Temp path to store the package before uploading to Service Fabric
+    PackageRootPath = "$env:TEMP\PowerTreePackage";`
+    # Path to a folder where the runtime binaries are located
+    SourcePath = "C:\PowerTree\";`
+    # The certificate store name
+    CertificateStoreName = "MY";`
+    # The Service Fabric certificate thumbprint
+    CertificateThumbprint = "ffffffffffffffffffffffffffffffffffffff";`
+    # The common name of the Service Fabric certificate
+    CertificateCommonName = "SFCert";`
+    # If provided, it is copied in the package output folder
+    ExecutionEnvironmentSourcePath = $null;`
+    InstanceCount = -1;`
+    IsSecuredCluster = $true;`
+    ApplicationName = "PowerTreeApp";`
+    Version = "1.0.0";`
+    ServiceName = "WorkflowHost";`
+    EntryPoint = "Workflow.HostManager.exe";`
 }
+
+Invoke-Workflow `
+    -Assembly "Workflow.ServiceFabricDeployment"`
+    -Namespace "Grafixoft.Powertree.Workflow.ServiceFabricDeployment"`
+    -Class "RuntimeDeploymentWorkflow"`
+    -FullDirectoryPath (Join-Path $pwd ".\Workflow.ServiceFabricDeployment\")`
+    -Parameters  $paramsList `
+    -TimeoutSec 600
 ```
 
 ### Manual Deployment
 
-#### Compute Node Deployment
-
-Bare metal deployment is the simplest deployment option. 
+Bare metal deployment is the simplest, although most involved, deployment option. 
 It consists of copying the PowerTree binaries and their respective configuration to all target compute nodes and setting up a daemon to keep the `Workflow.HostManager` process alive.
 
 

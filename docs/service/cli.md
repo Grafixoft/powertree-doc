@@ -3,7 +3,7 @@ id: cli
 title: Command-Line Interface
 ---
 
-PowerTree provides a collection of PowerShell cmdlets.
+PowerTree provides a collection of PowerShell cmdlets used to manage workflow execution.
 
 The first step to get started with them is to follow the [ExecutionEnvironment](configuration) page. 
 Then open a PowerShell window and import the `Workflow.Cmdlets` module - `Import-Module .\Workflow.Cmdlets.dll`.
@@ -18,13 +18,12 @@ This is useful in cases where on-demand workflow execution is needed and allows 
 
 |Name|Type|Required|Description|
 |- |- |- |- |
-|FullDirectoryPath|String|Yes|The the folder containing the workflow assembly
+|FullDirectoryPath|String|Yes|The the folder containing the workflow assembly|
 |Assembly|String|Yes|The assembly simple name|
 |Namespace|String|Yes|The namespace containing the workflow class|
 |Class|String|Yes|The workflow class|
 |Parameters|Hashtable|No|A hashtable containing a one-to-one mapping for workflow input properties|
 |TimeoutSec|Int|Yes|The time after which this workflow will timeout|
-
 
 ##### Input
 ```powershell
@@ -62,7 +61,6 @@ Returns the added workflow's id.
 |Class|String|Yes|The workflow class|
 |Parameters|Hashtable|No|A hashtable containing a one-to-one mapping for workflow input properties|
 |TimeoutSec|Int|Yes|The time after which this workflow will timeout|
-
 
 ##### Input
 ```powershell
@@ -148,14 +146,6 @@ Exception    :
     DateFinished : 2020-10-21 11:33:12
     ReturnValue  :
     Exception    :
-
-    Id           : d3215d4c-c0a5-46dd-a3cb-afd1382d6e56
-    ParentId     : 7
-    Status       : Failed
-    ClassName    : RenderFramesWorkflow
-    DateCreated  : 2020-10-21 11:12:13
-    DateFinished : 2020-10-21 11:27:32
-    ReturnValue  :
 
     ...
 ```

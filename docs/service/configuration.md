@@ -30,7 +30,7 @@ In practice, this translates directly to the `ExecutionEnvironment.config` confi
     <add key="ActivityLogBasePath" value=".\logs\activity"/>
     <add key="MinimumLogLevel" value="Information"/>
     <add key="LogFileSizeLimitBytes" value="1073741824"/>
-  <appSettings>
+  </appSettings>
 
   <hostManager>
     <processes>
@@ -43,7 +43,7 @@ In practice, this translates directly to the `ExecutionEnvironment.config` confi
 
 |Name|Type|Required|Description|
 |- |- |- |- |
-|ConnectionString|String|Yes|The connection string to the Operation Store database|
+|ConnectionString|String|Yes|The Operation Store connection string|
 |MaxActiveOperations|Int|Yes|Specifies the maximum concurrency level for workflows|
 |LocalComponentStoreDirectory|String|Yes|The path to the local component store base directory. Should point to a network share visible across all compute nodes|
 |StoreTempDirectory|String|Yes|The path to the local component store temporary directory|
