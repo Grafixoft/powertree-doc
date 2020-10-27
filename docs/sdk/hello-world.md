@@ -5,7 +5,7 @@ title: Hello World!
 
 ### Your First Workflow
 
-Once your development environment has been setup - you're ready to start developing.
+Once your environment has been setup - you're ready to start developing.
 
 As previously mentioned, workflows are extremely versatile and can encompass both the simplest and more complex use-cases. In this example we will explore the former - a Hello World workflow.
 

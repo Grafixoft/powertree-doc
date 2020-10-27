@@ -3,9 +3,7 @@ id: prerequisites
 title: Prerequisites
 ---
 
-### Prerequisites
-
-PowerTree relies on the .NET ecosystem and as such there are a few prerequisites needed to get you started with workflow development:
+PowerTree relies on the .NET ecosystem and as such there are a few prerequisites needed to get you started:
 
 * .NET Standard 2.0 compatible .NET installation
 * PowerShell
