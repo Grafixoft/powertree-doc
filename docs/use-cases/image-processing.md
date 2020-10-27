@@ -22,3 +22,67 @@ For images, it might be as simple as starting a new workflow for each of them.
 
 PowerTree also allows building complex transformation pipelines with relative ease through its simple programming model.
 It allows you to express complex processes without concerns about networks, durability and availability.
+
+### Example
+<!--DOCUSAURUS_CODE_TABS-->
+<!-- Parent Workflow -->
+
+```c#
+public class CompressImagesWorkflow : Workflow
+{
+    [DataMember]
+    private bool hasSubworkflows;
+
+    [DataMember]
+    public string[] ImageIds { get; set; }
+
+    public override Continuation DoWork(WorkflowRuntime runtime)
+    {
+        if (!this.hasSubworkflows) 
+        {
+            foreach (string imageId in this.ImageIds)
+            {
+                var subworkflow = new CompressSingleWorkflow()
+                {
+                    ImageId = imageId
+                };
+
+                runtime.Subworkflows.Enqueue(subworkflow, timeout: TimeSpan.FromMinutes(2));
+            }
+
+            this.hasSubworkflows = true;
+        }
+        else
+        {
+            this.NotifyCompleted(runtime.Subworkflows);
+        }
+        
+        return Continuation.WaitAll();
+    }
+
+    ...
+}
+```
+
+<!-- Subworkflow -->
+```c#
+public class CompressSingleWorkflow : Workflow
+{
+    [DataMember]
+    public string ImageId { get; set; }
+
+    public override Continuation DoWorkAsync(WorkflowRuntime runtime)
+    {
+        var image = this.GetImage(this.ImageId);
+        var compressed = this.Compress(image);
+        this.Persist(compressed, this.ImageId);
+
+        return Continuation.Default();
+    }
+
+    ...
+}
+```
+
+
+<!--END_DOCUSAURUS_CODE_TABS-->
