@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Command-Line Interface · PowerTree</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="PowerTree provides a collection of PowerShell cmdlets used to manage workflow execution."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Command-Line Interface · PowerTree"/><meta property="og:type" content="website"/><meta property="og:url" content="https://grafixoft.github.io//powertree-doc/"/><meta property="og:description" content="PowerTree provides a collection of PowerShell cmdlets used to manage workflow execution."/><meta property="og:image" content="https://grafixoft.github.io//powertree-doc/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://grafixoft.github.io//powertree-doc/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/powertree-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/powertree-doc/js/scrollSpy.js"></script><link rel="stylesheet" href="/powertree-doc/css/main.css"/><script src="/powertree-doc/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/powertree-doc/"><img class="logo" src="/powertree-doc/img/favicon.ico" alt="PowerTree"/><h2 class="headerTitleWithLogo">PowerTree</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>PowerTree Service</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/what-is-powertree">What is PowerTree?</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/why-powertree">Why PowerTree?</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/concepts">Concepts</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/architecture">Architecture</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Use Cases<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/image-processing">Image and Video Processing</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/data-migration">Data Migration</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/orchestration">Orchestration</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/computation">Computation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PowerTree Service<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/configuration">Configuration</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/powertree-doc/docs/service/cli">Command-Line Interface</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/deployment">Deployment</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/monitoring">Monitoring &amp; Tracing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">C# SDK<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/sdk-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/prerequisites">Prerequisites</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/hello-world">Hello World!</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workflow Interface</h4><ul><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/workflow">Workflow</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/subworkflows">Subworkflows</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/workflow-runtime">Workflow Runtime</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Command-Line Interface</h1></header><article><div><span><p>PowerTree provides a collection of PowerShell cmdlets used to manage workflow execution.</p>
+<p>The first step to get started with them is to follow the <a href="configuration">ExecutionEnvironment</a> page.
+Then open a PowerShell window and import the <code>Workflow.Cmdlets</code> module - <code>Import-Module .\Workflow.Cmdlets.dll</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id="invoke-workflow"></a><a href="#invoke-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Invoke-Workflow</h4>
+<p>The <code>Invoke-Workflow</code> command executes a given workflow in-memory, within the PowerShell session.
+In-memory execution follows the same rules as would executing the workflows in a distributed system,
+This is useful in cases where on-demand workflow execution is needed and allows attaching a debugger to the PowerShell process.</p>
+<h5><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>FullDirectoryPath</td><td>String</td><td>Yes</td><td>The folder containing the workflow assembly</td></tr>
+<tr><td>Assembly</td><td>String</td><td>Yes</td><td>The assembly simple name</td></tr>
+<tr><td>Namespace</td><td>String</td><td>Yes</td><td>The namespace containing the workflow class</td></tr>
+<tr><td>Class</td><td>String</td><td>Yes</td><td>The workflow class name</td></tr>
+<tr><td>Parameters</td><td>Hashtable</td><td>No</td><td>A hashtable containing a one-to-one mapping for workflow input properties</td></tr>
+<tr><td>TimeoutSec</td><td>Int</td><td>Yes</td><td>The time after which this workflow will timeout</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="input"></a><a href="#input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input</h5>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Invoke-Workflow</span> `
+    <span class="hljs-literal">-FullDirectoryPath</span> <span class="hljs-string">"{WorkflowDirectory}"</span>`
+    <span class="hljs-literal">-Assembly</span> <span class="hljs-string">"TestWorkflows"</span>`
+    <span class="hljs-literal">-Namespace</span> <span class="hljs-string">"Grafixoft.Powertree.TestWorkflows"</span>`
+    <span class="hljs-literal">-Class</span> <span class="hljs-string">"EchoWorkflow"</span>`
+    <span class="hljs-literal">-Parameters</span> <span class="hljs-selector-tag">@</span>{Input=<span class="hljs-string">"echo"</span>}`
+    <span class="hljs-literal">-TimeoutSec</span> <span class="hljs-number">6</span>
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="output"></a><a href="#output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output</h5>
+<pre><code class="hljs css language-powershell">EchoWorkflow received input: echo
+
+   Status ReturnValue
+   ------ -----------
+Succeeded echo
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="add-workflow"></a><a href="#add-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add-Workflow</h4>
+<p>The <code>Add-Workflow</code> command enqueues a new workflow instance for execution within the Operation Store.</p>
+<p>Returns the added workflow's id.</p>
+<h5><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>ComponentName</td><td>String</td><td>Yes</td><td>The component containing the workflow assembly</td></tr>
+<tr><td>ComponentVersion</td><td>String</td><td>No</td><td>If not set, the workflow runtime will resolve based on default and highest versions. Must be formatted as 0.0.0.0</td></tr>
+<tr><td>Assembly</td><td>String</td><td>Yes</td><td>The workflow assembly simple name</td></tr>
+<tr><td>Namespace</td><td>String</td><td>Yes</td><td>The namespace containing the workflow class</td></tr>
+<tr><td>Class</td><td>String</td><td>Yes</td><td>The workflow class</td></tr>
+<tr><td>Parameters</td><td>Hashtable</td><td>No</td><td>A hashtable containing a one-to-one mapping for workflow input properties</td></tr>
+<tr><td>TimeoutSec</td><td>Int</td><td>Yes</td><td>The time after which this workflow will timeout</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="input-1"></a><a href="#input-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input</h5>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Add-Workflow</span> `
+    <span class="hljs-literal">-ComponentName</span> <span class="hljs-string">"TestWorkflows"</span>`
+    <span class="hljs-literal">-ComponentVersion</span> <span class="hljs-string">"0.0.0.0"</span>`
+    <span class="hljs-literal">-Assembly</span> <span class="hljs-string">"TestWorkflows"</span>`
+    <span class="hljs-literal">-Namespace</span> <span class="hljs-string">"Grafixoft.Powertree.TestWorkflows"</span>`
+    <span class="hljs-literal">-Class</span> <span class="hljs-string">"EchoWorkflow"</span>`
+    <span class="hljs-literal">-Parameters</span> <span class="hljs-selector-tag">@</span>{Input=<span class="hljs-string">"echo"</span>}`
+    <span class="hljs-literal">-TimeoutSec</span> <span class="hljs-number">6</span>
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="output-1"></a><a href="#output-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output</h5>
+<pre><code class="hljs css language-powershell">Guid
+----
+<span class="hljs-number">0</span>e85262d<span class="hljs-literal">-be82</span><span class="hljs-literal">-4e5e</span><span class="hljs-literal">-a503</span><span class="hljs-literal">-33b502b43724</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="publish-component"></a><a href="#publish-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Publish-Component</h4>
+<p>The <code>Publish-Component</code> command zips the specified directory and publishes it to the configured component store.
+Make sure that your assemblies and <em>their dependencies</em> are included in the component directory.</p>
+<h5><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>ComponentName</td><td>String</td><td>Yes</td><td>The name of the component</td></tr>
+<tr><td>ComponentVersion</td><td>String</td><td>Yes</td><td>The published version. Must be formatted as 0.0.0.0</td></tr>
+<tr><td>Path</td><td>String</td><td>Yes</td><td>The component folder</td></tr>
+<tr><td>IsDefault</td><td>Bool</td><td>No</td><td>If set, marks the newly published version as default</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="input-2"></a><a href="#input-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input</h5>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Publish-Component</span> `
+    <span class="hljs-literal">-ComponentName</span> <span class="hljs-string">"TestWorkflows"</span>`
+    <span class="hljs-literal">-ComponentVersion</span> <span class="hljs-string">"1.0.0.0"</span>`
+    <span class="hljs-literal">-Path</span> <span class="hljs-string">"C:\TestWorkflows\bin\publish"</span>`
+    <span class="hljs-literal">-IsDefault</span> <span class="hljs-variable">$true</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="get-workflow"></a><a href="#get-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get-Workflow</h4>
+<p>The <code>Get-Workflow</code> command queries the Operation Store for details on a specific workflow.</p>
+<h5><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Id</td><td>String</td><td>Yes</td><td>The workflow id</td></tr>
+<tr><td>ShowAll</td><td>Switch</td><td>No</td><td>If set, returns raw workflow information</td></tr>
+<tr><td>TreeView</td><td>Switch</td><td>No</td><td>If set, the output will be indented when showing tree structures</td></tr>
+<tr><td>Depth</td><td>Int</td><td>No</td><td>If set, specifies that the workflow and its subworkflows up to the specified depth will be returned</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="input-3"></a><a href="#input-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input</h5>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Get-Workflow</span> <span class="hljs-literal">-Id</span> <span class="hljs-number">1</span>d85ba2c<span class="hljs-literal">-1385</span><span class="hljs-literal">-11eb</span><span class="hljs-literal">-adc1</span><span class="hljs-literal">-0242ac120002</span> <span class="hljs-literal">-TreeView</span> <span class="hljs-literal">-Depth</span> <span class="hljs-number">1</span>
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="output-2"></a><a href="#output-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output</h5>
+<pre><code class="hljs css language-powershell">Id           : f62decfd<span class="hljs-literal">-12c7</span><span class="hljs-literal">-4183</span><span class="hljs-literal">-ab06</span><span class="hljs-literal">-905dbcf5329b</span>
+ParentId     :
+Status       : Not finished
+ClassName    : BlenderRenderWorkflow
+DateCreated  : <span class="hljs-number">2020</span><span class="hljs-literal">-10</span><span class="hljs-literal">-21</span> <span class="hljs-number">11</span>:<span class="hljs-number">11</span>:<span class="hljs-number">39</span>
+DateFinished :
+ReturnValue  :
+Exception    :
+
+    Id           : <span class="hljs-number">626939</span>f5<span class="hljs-literal">-e718</span><span class="hljs-literal">-4a2f</span><span class="hljs-literal">-bdce</span><span class="hljs-literal">-b3fc43e32031</span>
+    ParentId     : <span class="hljs-number">7</span>
+    Status       : Not finished
+    ClassName    : RenderFramesWorkflow
+    DateCreated  : <span class="hljs-number">2020</span><span class="hljs-literal">-10</span><span class="hljs-literal">-21</span> <span class="hljs-number">11</span>:<span class="hljs-number">12</span>:<span class="hljs-number">13</span>
+    DateFinished :
+    ReturnValue  :
+    Exception    :
+
+    Id           : fc75ab1c<span class="hljs-literal">-6815</span><span class="hljs-literal">-4404</span><span class="hljs-literal">-b3f9</span><span class="hljs-literal">-9649b2ad4cd8</span>
+    ParentId     : <span class="hljs-number">7</span>
+    Status       : Succeeded
+    ClassName    : RenderFramesWorkflow
+    DateCreated  : <span class="hljs-number">2020</span><span class="hljs-literal">-10</span><span class="hljs-literal">-21</span> <span class="hljs-number">11</span>:<span class="hljs-number">12</span>:<span class="hljs-number">13</span>
+    DateFinished : <span class="hljs-number">2020</span><span class="hljs-literal">-10</span><span class="hljs-literal">-21</span> <span class="hljs-number">11</span>:<span class="hljs-number">33</span>:<span class="hljs-number">12</span>
+    ReturnValue  :
+    Exception    :
+
+    ...
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="stop-workflow"></a><a href="#stop-workflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stop-Workflow</h4>
+<p>The <code>Stop-Workflow</code> command sends a cancellation request for the specified workflow.</p>
+<h5><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h5>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Id</td><td>String</td><td>Yes</td><td>The workflow id</td></tr>
+</tbody>
+</table>
+<pre><code class="hljs css language-powershell"><span class="hljs-built_in">Stop-Workflow</span> <span class="hljs-literal">-Id</span> <span class="hljs-number">1</span>d85ba2c<span class="hljs-literal">-1385</span><span class="hljs-literal">-11eb</span><span class="hljs-literal">-adc1</span><span class="hljs-literal">-0242ac120002</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/powertree-doc/docs/service/configuration"><span class="arrow-prev">← </span><span>Configuration</span></a><a class="docs-next button" href="/powertree-doc/docs/service/deployment"><span>Deployment</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div></div></body></html>

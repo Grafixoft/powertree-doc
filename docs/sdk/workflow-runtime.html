@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Workflow Runtime · PowerTree</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The `WorkflowRuntime` parameter of the `DoWork` method is responsible for providing essential runtime services to the currently executing workflow."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Workflow Runtime · PowerTree"/><meta property="og:type" content="website"/><meta property="og:url" content="https://grafixoft.github.io//powertree-doc/"/><meta property="og:description" content="The `WorkflowRuntime` parameter of the `DoWork` method is responsible for providing essential runtime services to the currently executing workflow."/><meta property="og:image" content="https://grafixoft.github.io//powertree-doc/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://grafixoft.github.io//powertree-doc/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/powertree-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/powertree-doc/js/scrollSpy.js"></script><link rel="stylesheet" href="/powertree-doc/css/main.css"/><script src="/powertree-doc/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/powertree-doc/"><img class="logo" src="/powertree-doc/img/favicon.ico" alt="PowerTree"/><h2 class="headerTitleWithLogo">PowerTree</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"></ul></nav></div></header></div></div><div class="navPusher singleRowMobileNav"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Workflow Interface</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/what-is-powertree">What is PowerTree?</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/why-powertree">Why PowerTree?</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/concepts">Concepts</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/overview/architecture">Architecture</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Use Cases<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/image-processing">Image and Video Processing</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/data-migration">Data Migration</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/orchestration">Orchestration</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/use-cases/computation">Computation</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">PowerTree Service<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/cli">Command-Line Interface</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/deployment">Deployment</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/service/monitoring">Monitoring &amp; Tracing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">C# SDK<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/sdk-overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/prerequisites">Prerequisites</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/hello-world">Hello World!</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Workflow Interface</h4><ul><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/workflow">Workflow</a></li><li class="navListItem"><a class="navItem" href="/powertree-doc/docs/sdk/subworkflows">Subworkflows</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/powertree-doc/docs/sdk/workflow-runtime">Workflow Runtime</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Workflow Runtime</h1></header><article><div><span><p>The <code>WorkflowRuntime</code> parameter of the <code>DoWork</code> method is responsible for providing essential runtime services to the currently executing workflow.</p>
+<h3><a class="anchor" aria-hidden="true" id="subworkflow-service"></a><a href="#subworkflow-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subworkflow Service</h3>
+<p>The SubworkflowService class manages subworkflows for the workflow and defines the following methods</p>
+<pre><code class="hljs css language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Cancel</span>(<span class="hljs-params">WorkflowId id</span>)</span>;
+</code></pre>
+<p>Cancel issues a cancellation request for the specified subworkflow.<br>
+If the subworkflow is active it will take some time before it is deactivated - the cancellation is not always instanteneous.</p>
+<pre><code class="hljs css language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> WorkflowId <span class="hljs-title">Enqueue</span>(<span class="hljs-params">Workflow workflow, TimeSpan timeout</span>)</span>;
+</code></pre>
+<p>Enqueue adds a subworkflow for asynchronous processing. Parent workflows cannot enqueue and observe a subworkflow result in the same activity.</p>
+<h4><a class="anchor" aria-hidden="true" id="observing-subworkflow-state"></a><a href="#observing-subworkflow-state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Observing Subworkflow State</h4>
+<pre><code class="hljs css language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> IEnumerable&lt;WorkflowResult&gt; <span class="hljs-title">GetUnobservedResults</span>(<span class="hljs-params"></span>)</span>;
+</code></pre>
+<p>GetUnobservedResults provides the results for the subworkflows which have completed since the last activation of the caller workflow.<br>
+Suitable for cases when the parent starts and handles many subworkflows uniformly without trying to distinguish them.</p>
+<pre><code class="hljs css language-csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">TryGetResult</span>(<span class="hljs-params">WorkflowId id, <span class="hljs-keyword">out</span> WorkflowResult result</span>)</span>;
+</code></pre>
+<p>TryGetResult returns true and the result if the specified subworkflow has completed before activating the parent. Otherwise returns false and null.<br>
+It is ok to call this method if the subworkflow has not completed yet.</p>
+<pre><code class="hljs css language-csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> WorkflowResult <span class="hljs-keyword">this</span>[WorkflowId id] { <span class="hljs-keyword">get</span>; }
+</code></pre>
+<p>Provides the result for a specific subworkflow. If the subworkflow has not completed yet this call will throw an exception.<br>
+This is mostly suitable for cases when the parent has a single subworkflow so when the parent is activated it knows the subworkflow has completed.</p>
+<h3><a class="anchor" aria-hidden="true" id="logger"></a><a href="#logger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logger</h3>
+<p>The <code>WorkflowRuntime</code> provides a <code>Logger</code> instance to workflows. It allows developers and operators to trace workflow execution across nodes.
+The activity logger is transparently enriched with properties relating to the current workflow, e.g. id of the workflow, the name of the executing class and which version and component does it belong to. These can be aggregated and searched down the line to make pinpointing problems easy.</p>
+<p>It also supports Serilog's <a href="https://github.com/serilog/serilog/wiki/Writing-Log-Events#message-template-syntax">Message Template Syntax</a></p>
+<pre><code class="hljs css language-c#">runtime.Logger.LogInformation(eventId: <span class="hljs-number">0</span>, <span class="hljs-string">"Final result is {result}"</span>, result);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="activity-cancellation"></a><a href="#activity-cancellation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Activity Cancellation</h3>
+<pre><code class="hljs css language-c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> CancellationToken CancellationToken { <span class="hljs-keyword">get</span>; }
+</code></pre>
+<p>The <code>CancellationToken</code> property of <code>WorkflowRuntime</code> is used to provide a cancellation notification to the workflow being executed.
+Among others, the token will get signalled whenever the current workflow has been cancelled while active or when the host is shutting down.</p>
+<p>Workflows are expected to complete their work as quickly as possible and, although currently not enforced, the workflow will be interrupted if it does not deactivate within a given time period.</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-4-tab-5" class="nav-link active" data-group="group_4" data-tab="tab-group-4-content-5">Async Workflow</div><div id="tab-group-4-tab-6" class="nav-link" data-group="group_4" data-tab="tab-group-4-content-6">Workflow</div></div><div class="tab-content"><div id="tab-group-4-content-5" class="tab-pane active" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-c#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">async</span> Task&lt;Continuation&gt; <span class="hljs-title">DoWorkAsync</span>(<span class="hljs-params">WorkflowRuntime runtime</span>)</span><br />{<br />    <span class="hljs-keyword">await</span> <span class="hljs-keyword">this</span>.LongRunningOperationAsync(runtime.CancellationToken);<br /><br />    <span class="hljs-keyword">return</span> Continuation.Default();<br />}<br /></code></pre>
+</span></div></div><div id="tab-group-4-content-6" class="tab-pane" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-c#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> Continuation <span class="hljs-title">DoWork</span>(<span class="hljs-params">WorkflowRuntime runtime</span>)</span><br />{<br />    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">int</span>.MaxValue; i++)<br />    {<br />        <span class="hljs-keyword">if</span> (runtime.CancellationToken.IsCancellationRequested)<br />        {<br />            <span class="hljs-keyword">break</span>;<br />        }<br /><br />        <span class="hljs-keyword">this</span>.result += <span class="hljs-keyword">this</span>.SlowMethod();<br />    }<br /><br />    <span class="hljs-keyword">return</span> Continuation.Default();<br />}<br /></code></pre>
+</span></div></div></div></div>
+<h3><a class="anchor" aria-hidden="true" id="host-services"></a><a href="#host-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Host Services</h3>
+<p><code>HostServices</code> is a property on the workflow runtime interface of type <code>IServiceProvider</code>. It allows the workflow host (or a test) to provide object instances which the workflow can look up by type at runtime. Those objects are stable across multiple workflow activations and serializations - they are provided by the host and the runtime, not by de-serializing from the operation store. So, when it comes to instantiating external dependency the workflow can first consult the host services if such dependency already exists and only if it does not then it can go ahead and instantiate it.</p>
+<p>The pattern looks like this:</p>
+<pre><code class="hljs css language-c#"><span class="hljs-keyword">var</span> dependency = runtime.HostServices.GetByType(type(IExternalService))
+    ?? <span class="hljs-keyword">new</span> ExternalServiceImplementation();
+</code></pre>
+<p>Usually the dependency is abstracted behind an interface which can be mocked or faked by the test code.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/powertree-doc/docs/sdk/subworkflows"><span class="arrow-prev">← </span><span>Subworkflows</span></a></div></div></div><nav class="onPageNav"></nav></div></div></body></html>
