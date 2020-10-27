@@ -48,8 +48,8 @@ In practice, this translates directly to the `ExecutionEnvironment.config` confi
 |LocalComponentStoreDirectory|String|Yes|The path to the local component store base directory. Should point to a network share visible across all compute nodes|
 |StoreTempDirectory|String|Yes|The path to the local component store temporary directory|
 |ComponentCacheDirectory|String|Yes|The path to the local component cache base directory. Should point to a folder on the compute node|
-|CacheTempDirectory|String|Yes|The path to the local component cachetemporary directory|
+|CacheTempDirectory|String|Yes|The path to the local component cache temporary directory|
 |RuntimeLogBasePath|String|No|The base file path for runtime log files. Defaults to ./logs/runtime|
 |ActivityLogBasePath|String|No|The base file path for activity log files. Defaults to ./logs/activity|
-|MinimumLogLevel|[TraceEventType](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.traceeventtype)|No||
+|MinimumLogLevel|[TraceEventType](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.traceeventtype)|No|Defaults to Information|
 |LogFileSizeLimitBytes|Int|No|The maximum size a log file reaches before rolling over to the next file. Defaults to 1073741824|

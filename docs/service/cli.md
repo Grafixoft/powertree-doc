@@ -18,10 +18,10 @@ This is useful in cases where on-demand workflow execution is needed and allows 
 
 |Name|Type|Required|Description|
 |- |- |- |- |
-|FullDirectoryPath|String|Yes|The the folder containing the workflow assembly|
+|FullDirectoryPath|String|Yes|The folder containing the workflow assembly|
 |Assembly|String|Yes|The assembly simple name|
 |Namespace|String|Yes|The namespace containing the workflow class|
-|Class|String|Yes|The workflow class|
+|Class|String|Yes|The workflow class name|
 |Parameters|Hashtable|No|A hashtable containing a one-to-one mapping for workflow input properties|
 |TimeoutSec|Int|Yes|The time after which this workflow will timeout|
 
